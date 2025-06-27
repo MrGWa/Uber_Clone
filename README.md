@@ -1,14 +1,12 @@
 
-```markdown
 # Ride Lifecycle Management Module
 
----
 
 ## 📋 Overview
 
 This module manages the complete lifecycle of a ride request—from initiation, acceptance, navigation, completion, to feedback and dispute resolution. It enables seamless coordination between passengers, drivers, and admins through REST APIs and real-time SignalR communication.
 
----
+
 
 ## 🚀 Features
 
@@ -20,11 +18,9 @@ This module manages the complete lifecycle of a ride request—from initiation, 
 - Feedback and rating system for passengers and drivers
 - Admin oversight for dispute resolution and ride history
 
----
 
 ## 🗂️ Project Folder Structure
 
-```
 
 RideApp/
 │
@@ -51,9 +47,6 @@ RideApp/
 ├── Startup.cs (if using .NET 5 or earlier)
 └── appsettings.json
 
-````
-
----
 
 ## ⚙️ Getting Started
 
@@ -64,7 +57,7 @@ RideApp/
 - SQL Server / SQLite (configured in `appsettings.json`)
 - Git installed for version control
 
----
+
 
 ### Setup Instructions
 
