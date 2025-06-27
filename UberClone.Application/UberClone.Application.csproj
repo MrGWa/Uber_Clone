@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UberClone.Core\UberClone.Core.csproj" />
+    <ProjectReference Include="..\UberClone.Domain\UberClone.Domain.csproj" />
+    <ProjectReference Include="..\UberClone.Tests\UberClone.Tests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+  </ItemGroup>
+
 </Project>
