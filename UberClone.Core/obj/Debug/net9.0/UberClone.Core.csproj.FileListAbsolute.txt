@@ -1,0 +1,12 @@
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\bin\Debug\net9.0\UberClone.Core.deps.json
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\bin\Debug\net9.0\UberClone.Core.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\bin\Debug\net9.0\UberClone.Core.pdb
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\UberClone.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\UberClone.Core.AssemblyInfoInputs.cache
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\UberClone.Core.AssemblyInfo.cs
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\UberClone.Core.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\UberClone.Core.sourcelink.json
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\UberClone.Core.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\refint\UberClone.Core.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\UberClone.Core.pdb
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Core\obj\Debug\net9.0\ref\UberClone.Core.dll

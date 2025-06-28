@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "pRVUkLBlKToZYIVQOkPm9LNLDh2njLaQ0gUUXAAnfSg=",
+  "Source": "UberClone.Api",
+  "BasePath": "_content/UberClone.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
