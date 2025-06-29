@@ -3,12 +3,23 @@ using UberClone.Application.Interfaces;
 using UberClone.Application.UseCases.User;
 using UberClone.Infrastructure.Persistence;
 using UberClone.Infrastructure.Repositories;
+using UberClone.Infrastructure.Services.Admin; // Added by Tamar
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("TestDb"));
+
+builder.Services.AddScoped<AdminReportService>(); // Added by Tamar
+builder.Services.AddScoped<SupportTicketService>(); //Added by Tamar
+builder.Services.AddScoped<TariffService>(); //Added by Tamar
+builder.Services.AddScoped<AuditLogService>(); //Added by Tamar
+builder.Services.AddScoped<PromoCodeService>(); // Added by Tamar
+builder.Services.AddScoped<DriverLocationService>(); // Added by Tamar
+builder.Services.AddScoped<UserActivityReportService>(); // Added by Tamar
+
 
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();

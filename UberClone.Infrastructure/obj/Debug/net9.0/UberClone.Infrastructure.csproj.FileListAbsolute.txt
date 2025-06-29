@@ -27,3 +27,32 @@ C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Infrastruct
 C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\refint\UberClone.Infrastructure.dll
 C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.pdb
 C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\ref\UberClone.Infrastructure.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Tests.deps.json
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Tests.runtimeconfig.json
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\testhost.exe
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\testhost.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\xunit.runner.visualstudio.testadapter.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Infrastructure.deps.json
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Infrastructure.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Infrastructure.pdb
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Application.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Core.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Domain.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Tests.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Core.pdb
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Domain.pdb
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Tests.pdb
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\bin\Debug\net9.0\UberClone.Application.pdb
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.AssemblyInfo.cs
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.sourcelink.json
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClon.60691BFB.Up2Date
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\refint\UberClone.Infrastructure.dll
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\UberClone.Infrastructure.pdb
+C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Infrastructure\obj\Debug\net9.0\ref\UberClone.Infrastructure.dll
