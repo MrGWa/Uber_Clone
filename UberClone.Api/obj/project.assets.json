@@ -5807,19 +5807,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tauntaun\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tauntaun\\Desktop\\Uber_Clone\\UberClone.Api\\UberClone.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Api\\UberClone.Api.csproj",
       "projectName": "UberClone.Api",
-      "projectPath": "C:\\Users\\tauntaun\\Desktop\\Uber_Clone\\UberClone.Api\\UberClone.Api.csproj",
-      "packagesPath": "C:\\Users\\tauntaun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tauntaun\\Desktop\\Uber_Clone\\UberClone.Api\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Api\\UberClone.Api.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tauntaun\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -5831,11 +5831,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\tauntaun\\Desktop\\Uber_Clone\\UberClone.Application\\UberClone.Application.csproj": {
-              "projectPath": "C:\\Users\\tauntaun\\Desktop\\Uber_Clone\\UberClone.Application\\UberClone.Application.csproj"
+            "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Application\\UberClone.Application.csproj": {
+              "projectPath": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Application\\UberClone.Application.csproj"
             },
-            "C:\\Users\\tauntaun\\Desktop\\Uber_Clone\\UberClone.Infrastructure\\UberClone.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\tauntaun\\Desktop\\Uber_Clone\\UberClone.Infrastructure\\UberClone.Infrastructure.csproj"
+            "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Infrastructure\\UberClone.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Infrastructure\\UberClone.Infrastructure.csproj"
             }
           }
         }
@@ -5886,7 +5886,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

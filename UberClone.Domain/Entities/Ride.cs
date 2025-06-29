@@ -7,6 +7,12 @@ public class Ride
     public DateTime CreatedAt { get; set; }
     public decimal Cost { get; set; }
     public Guid PassengerId { get; set; }
+    
+    public decimal Fare { get; set; }
+
+    public Guid DriverId { get; set; }
+    
+    public string Status { get; set; } = "Pending";
 
 
 }

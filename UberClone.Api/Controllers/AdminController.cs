@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using UberClone.Application.DTOs.Admin;
 using UberClone.Infrastructure.Services.Admin;
+using UberClone.Application.Interfaces.Admin;
 using UberClone.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ namespace UberClone.Api.Controllers;
 [Route("api/[controller]")]
 public class AdminController : ControllerBase
 {
+    private readonly IAnalyticsService _analyticsService;
     private readonly AdminReportService _adminReportService;
     private readonly SupportTicketService _supportTicketService;
     private readonly TariffService _tariffService;
@@ -23,6 +25,7 @@ public class AdminController : ControllerBase
 
 
     public AdminController(
+        IAnalyticsService analyticsService,
         AdminReportService adminReportService,
         SupportTicketService supportTicketService,
         TariffService tariffService,
@@ -31,6 +34,7 @@ public class AdminController : ControllerBase
         DriverLocationService driverLocationService,
         UserActivityReportService userActivityReportService)
     {
+        _analyticsService = analyticsService;
         _adminReportService = adminReportService;
         _supportTicketService = supportTicketService;
         _tariffService = tariffService;
@@ -41,6 +45,22 @@ public class AdminController : ControllerBase
     }
 
 
+    [HttpGet("analytics")]
+    public async Task<IActionResult> GetSystemAnalytics()
+    {
+        try
+        {
+            var data = await _analyticsService.GetSystemAnalyticsAsync();
+            return Ok(data);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+
+    
+    
     [HttpPost("reports/revenue")]
     public async Task<IActionResult> GetRevenueReport([FromBody] ReportRequestDto dto)
     {
