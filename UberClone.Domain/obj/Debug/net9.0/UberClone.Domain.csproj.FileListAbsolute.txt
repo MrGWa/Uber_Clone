@@ -22,3 +22,15 @@ C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Domain\obj\Debug\net9.0\UberClone
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Domain\obj\Debug\net9.0\refint\UberClone.Domain.dll
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Domain\obj\Debug\net9.0\UberClone.Domain.pdb
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Domain\obj\Debug\net9.0\ref\UberClone.Domain.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\bin\Debug\net9.0\UberClone.Domain.deps.json
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\bin\Debug\net9.0\UberClone.Domain.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\bin\Debug\net9.0\UberClone.Domain.pdb
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\UberClone.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\UberClone.Domain.AssemblyInfoInputs.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\UberClone.Domain.AssemblyInfo.cs
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\UberClone.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\UberClone.Domain.sourcelink.json
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\UberClone.Domain.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\refint\UberClone.Domain.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\UberClone.Domain.pdb
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Domain\obj\Debug\net9.0\ref\UberClone.Domain.dll

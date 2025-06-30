@@ -6,6 +6,10 @@ using UberClone.Infrastructure.Repositories;
 using UberClone.Infrastructure.Services.Admin; // Added by Tamar
 using UberClone.Application.Interfaces.Admin;
 using UberClone.Infrastructure.Services.Admin;
+using UberClone.Infrastructure.Services;
+using UberClone.Application.UseCases;
+using UberClone.Application.Interfaces;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,11 +27,17 @@ builder.Services.AddScoped<PromoCodeService>(); // Added by Tamar
 builder.Services.AddScoped<DriverLocationService>(); // Added by Tamar
 builder.Services.AddScoped<UserActivityReportService>(); // Added by Tamar
 
+
+
 builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
 
 
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<IRideService, RideService>();
+
+
 builder.Services.AddScoped<RegisterUserCommand>();
 
 

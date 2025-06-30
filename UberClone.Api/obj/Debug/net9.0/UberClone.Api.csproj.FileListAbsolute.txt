@@ -522,3 +522,14 @@ C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Api\obj\Debug\net9.0\refint\UberC
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.pdb
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.genruntimeconfig.cache
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Api\obj\Debug\net9.0\ref\UberClone.Api.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.csproj.AssemblyReference.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.AssemblyInfoInputs.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.AssemblyInfo.cs
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.csproj.CoreCompileInputs.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.sourcelink.json
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\refint\UberClone.Api.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\net9.0\UberClone.Api.pdb

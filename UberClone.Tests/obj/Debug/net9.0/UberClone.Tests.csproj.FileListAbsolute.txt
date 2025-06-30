@@ -196,3 +196,14 @@ C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Tests\obj\Debug\net9.0\refint\Ube
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.pdb
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.genruntimeconfig.cache
 C:\Users\tauntaun\Desktop\Uber_Clone\UberClone.Tests\obj\Debug\net9.0\ref\UberClone.Tests.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\bin\Debug\net9.0\.msCoverageSourceRootsMapping_UberClone.Tests
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\bin\Debug\net9.0\CoverletSourceRootsMapping_UberClone.Tests
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.csproj.AssemblyReference.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.AssemblyInfoInputs.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.AssemblyInfo.cs
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.csproj.CoreCompileInputs.cache
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.sourcelink.json
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\refint\UberClone.Tests.dll
+C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.pdb
