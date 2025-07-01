@@ -207,3 +207,5 @@ C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug
 C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.dll
 C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\refint\UberClone.Tests.dll
 C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.pdb
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\.msCoverageSourceRootsMapping_UberClone.Tests
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\CoverletSourceRootsMapping_UberClone.Tests

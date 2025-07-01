@@ -9,6 +9,8 @@ using UberClone.Infrastructure.Services.Admin;
 using UberClone.Infrastructure.Services;
 using UberClone.Application.UseCases;
 using UberClone.Application.Interfaces;
+using UberClone.Application.Interfaces.Services;
+using UberClone.Infrastructure.Services;
 
 
 
@@ -26,6 +28,7 @@ builder.Services.AddScoped<AuditLogService>(); //Added by Tamar
 builder.Services.AddScoped<PromoCodeService>(); // Added by Tamar
 builder.Services.AddScoped<DriverLocationService>(); // Added by Tamar
 builder.Services.AddScoped<UserActivityReportService>(); // Added by Tamar
+builder.Services.AddScoped<IRideLifecycleService, RideLifecycleService>();
 
 
 
@@ -35,7 +38,7 @@ builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-builder.Services.AddScoped<IRideService, RideService>();
+
 
 
 builder.Services.AddScoped<RegisterUserCommand>();

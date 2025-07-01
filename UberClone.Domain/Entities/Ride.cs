@@ -1,18 +1,15 @@
-//added by tamar
 namespace UberClone.Domain.Entities;
 
 public class Ride
 {
-    public int Id { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public decimal Cost { get; set; }
+    public Guid Id { get; set; }
     public Guid PassengerId { get; set; }
-    
-    public decimal Fare { get; set; }
-
     public Guid DriverId { get; set; }
-    
-    public string Status { get; set; } = "Pending";
-
-
+    public string Status { get; set; } = RideStatus.Pending;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime? StartedAt { get; set; }
+    public DateTime? CompletedAt { get; set; }
+    public DateTime? CancelledAt { get; set; }
+    public string? CancellationReason { get; set; }
+    public decimal? Fare { get; set; }
 }

@@ -9,12 +9,12 @@ using Xunit;
 
 namespace UberClone.Tests.Services;
 
-public class RideServiceTests
+public class RideLifecycleServiceTests
 {
     private readonly RideService _service;
     private readonly AppDbContext _context;
 
-    public RideServiceTests()
+    public RideLifecycleServiceTests()
     {
         var options = new DbContextOptionsBuilder<AppDbContext>()
             .UseInMemoryDatabase(Guid.NewGuid().ToString())

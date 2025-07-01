@@ -2,38 +2,39 @@
 using UberClone.Application.DTOs.Ride;
 using UberClone.Application.Interfaces;
 using UberClone.Domain.Entities;
+using UberClone.Application.Interfaces.Services;
 
 namespace UberClone.Api.Controllers;
 
-[ApiController]
 [Route("api/[controller]")]
+[ApiController]
 public class RideController : ControllerBase
 {
-    private readonly IRideService _rideService;
+    private readonly IRideLifecycleService _rideLifecycleService;
 
-    public RideController(IRideService rideService)
+    public RideController(IRideLifecycleService rideLifecycleService)
     {
-        _rideService = rideService;
+        _rideLifecycleService = rideLifecycleService;
     }
 
-    [HttpPost("request-ride")]
-    public ActionResult<Ride> RequestRide([FromBody] RideRequestDto dto)
+    [HttpPost("start")]
+    public async Task<IActionResult> Start([FromBody] StartRideDto dto)
     {
-        var ride = _rideService.RequestRide(dto);
-        return Ok(ride);
+        await _rideLifecycleService.StartRideAsync(dto);
+        return Ok("Ride started.");
     }
 
-    [HttpPost("accept-ride")]
-    public IActionResult AcceptRide([FromBody] RideAcceptedDto dto)
+    [HttpPost("complete")]
+    public async Task<IActionResult> Complete([FromBody] CompleteRideDto dto)
     {
-        _rideService.AcceptRide(dto);
-        return Ok(new { message = "Ride accepted" });
+        await _rideLifecycleService.CompleteRideAsync(dto);
+        return Ok("Ride completed.");
     }
 
-    [HttpPost("complete-ride")]
-    public ActionResult<Ride> CompleteRide([FromBody] RideCompletedDto dto)
+    [HttpPost("cancel")]
+    public async Task<IActionResult> Cancel([FromBody] CancelRideDto dto)
     {
-        var ride = _rideService.CompleteRide(dto);
-        return Ok(ride);
+        await _rideLifecycleService.CancelRideAsync(dto);
+        return Ok("Ride cancelled.");
     }
 }

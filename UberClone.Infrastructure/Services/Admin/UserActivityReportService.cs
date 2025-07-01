@@ -1,12 +1,13 @@
 // Added by tamar
 
 using UberClone.Application.DTOs.Admin;
+using UberClone.Application.Interfaces.Admin;
 using UberClone.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace UberClone.Infrastructure.Services.Admin;
 
-public class UserActivityReportService
+public class UserActivityReportService : IUserActivityReportService
 {
     private readonly AppDbContext _context;
 
@@ -17,35 +18,23 @@ public class UserActivityReportService
 
     public async Task<List<UserActivityDto>> GetUserActivityReportAsync()
     {
-        var users = await _context.Users.ToListAsync();
-
-        var ridesGrouped = await _context.Rides
-            .GroupBy(r => r.PassengerId)
-            .Select(g => new
-            {
-                PassengerId = g.Key,
-                TotalRides = g.Count(),
-                TotalSpent = g.Sum(r => r.Cost),
-                LastRideDate = g.Max(r => r.CreatedAt)
-            })
-            .ToListAsync();
-
-        var report = new List<UserActivityDto>();
-
-        foreach (var user in users)
-        {
-            var rideData = ridesGrouped.FirstOrDefault(r => r.PassengerId == user.Id);
-
-            report.Add(new UserActivityDto
+        var userActivities = await _context.Users
+            .Select(user => new UserActivityDto
             {
                 UserId = user.Id,
                 Email = user.Email,
-                TotalRides = rideData?.TotalRides ?? 0,
-                TotalSpent = rideData?.TotalSpent ?? 0,
-                LastRideDate = rideData?.LastRideDate
-            });
-        }
+                TotalRides = _context.Rides.Count(r => r.PassengerId == user.Id),
+                TotalSpent = _context.Rides
+                    .Where(r => r.PassengerId == user.Id && r.Fare.HasValue)
+                    .Sum(r => r.Fare!.Value),
+                LastRideDate = _context.Rides
+                    .Where(r => r.PassengerId == user.Id)
+                    .OrderByDescending(r => r.CreatedAt)
+                    .Select(r => r.CreatedAt)
+                    .FirstOrDefault()
+            })
+            .ToListAsync();
 
-        return report;
+        return userActivities;
     }
 }
