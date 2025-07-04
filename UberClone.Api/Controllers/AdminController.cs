@@ -2,41 +2,24 @@
 using Microsoft.AspNetCore.Mvc;
 using UberClone.Application.DTOs.Admin;
 using UberClone.Application.Interfaces.Admin;
+using UberClone.Application.Interfaces.UseCases;
 
 namespace UberClone.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AdminController : ControllerBase
+public class AdminController(
+    IAnalyticsService analyticsService,
+    IAdminReportService adminReportService,
+    ISupportTicketService supportTicketService,
+    IManageTariffUseCase manageTariffUseCase,
+    IAuditLogService auditLogService,
+    IManagePromoCodeUseCase managePromoCodeUseCase,
+    IDriverLocationService driverLocationService,
+    IUserActivityReportService userActivityReportService,
+    ICreateSupportTicketUseCase createSupportTicketUseCase,
+    IResolveSupportTicketUseCase resolveSupportTicketUseCase) : ControllerBase
 {
-    private readonly IAnalyticsService _analyticsService;
-    private readonly IAdminReportService _adminReportService;
-    private readonly ISupportTicketService _supportTicketService;
-    private readonly ITariffService _tariffService;
-    private readonly IAuditLogService _auditLogService;
-    private readonly IPromoCodeService _promoCodeService;
-    private readonly IDriverLocationService _driverLocationService;
-    private readonly IUserActivityReportService _userActivityReportService;
-
-    public AdminController(
-        IAnalyticsService analyticsService,
-        IAdminReportService adminReportService,
-        ISupportTicketService supportTicketService,
-        ITariffService tariffService,
-        IAuditLogService auditLogService,
-        IPromoCodeService promoCodeService,
-        IDriverLocationService driverLocationService,
-        IUserActivityReportService userActivityReportService)
-    {
-        _analyticsService = analyticsService;
-        _adminReportService = adminReportService;
-        _supportTicketService = supportTicketService;
-        _tariffService = tariffService;
-        _auditLogService = auditLogService;
-        _promoCodeService = promoCodeService;
-        _driverLocationService = driverLocationService;
-        _userActivityReportService = userActivityReportService;
-    }
 
 
     [HttpGet("analytics")]
@@ -44,7 +27,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            var data = await _analyticsService.GetSystemAnalyticsAsync();
+            var data = await analyticsService.GetSystemAnalyticsAsync();
             return Ok(data);
         }
         catch (Exception ex)
@@ -60,7 +43,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            var report = await _adminReportService.GenerateRevenueReportAsync(dto);
+            var report = await adminReportService.GenerateRevenueReportAsync(dto);
             return Ok(report);
         }
         catch (Exception ex)
@@ -74,7 +57,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            await _supportTicketService.CreateTicketAsync(dto);
+            await createSupportTicketUseCase.ExecuteAsync(dto);
             return Ok("Support ticket created.");
         }
         catch (Exception ex)
@@ -86,7 +69,7 @@ public class AdminController : ControllerBase
     [HttpGet("tickets")]
     public async Task<IActionResult> GetAllTickets()
     {
-        var tickets = await _supportTicketService.GetAllTicketsAsync();
+        var tickets = await supportTicketService.GetAllTicketsAsync();
         return Ok(tickets);
     }
 
@@ -95,13 +78,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            await _supportTicketService.UpdateTicketAsync(ticketId, dto);
-
-            await _auditLogService.LogAsync(
-                "Resolve Ticket",
-                ticketId.ToString(),
-                $"Status changed to '{dto.Status}' with response: {dto.AdminResponse}"
-            );
+            await resolveSupportTicketUseCase.ExecuteAsync(ticketId, dto, "admin"); // TODO: Get actual admin user ID
 
             return Ok("Support ticket updated.");
         }
@@ -116,13 +93,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            var result = await _tariffService.CreateOrUpdateAsync(dto);
-
-            await _auditLogService.LogAsync(
-                "Update Tariff",
-                dto.Region,
-                $"Base: {dto.BaseFare}, Min: {dto.PerMinute}, Km: {dto.PerKilometer}, Surge: {dto.SurgeMultiplier}"
-            );
+            var result = await manageTariffUseCase.CreateOrUpdateAsync(dto, "admin"); // TODO: Get actual admin user ID
 
             return Ok(result);
         }
@@ -136,14 +107,14 @@ public class AdminController : ControllerBase
     [HttpGet("tariffs")]
     public async Task<IActionResult> GetAllTariffs()
     {
-        var tariffs = await _tariffService.GetAllTariffsAsync();
+        var tariffs = await manageTariffUseCase.GetAllTariffsAsync();
         return Ok(tariffs);
     }
 
     [HttpGet("audit-logs")]
     public async Task<IActionResult> GetAuditLogs()
     {
-        var logs = await _auditLogService.GetAllAuditLogsAsync();
+        var logs = await auditLogService.GetAllAuditLogsAsync();
         return Ok(logs);
     }
 
@@ -152,7 +123,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            var result = await _promoCodeService.CreatePromoCodeAsync(dto);
+            var result = await managePromoCodeUseCase.CreatePromoCodeAsync(dto, "admin"); // TODO: Get actual admin user ID
             return Ok(result);
         }
         catch (Exception ex)
@@ -164,7 +135,7 @@ public class AdminController : ControllerBase
     [HttpGet("promocodes")]
     public async Task<IActionResult> GetAllPromoCodes()
     {
-        var codes = await _promoCodeService.GetAllPromoCodesAsync();
+        var codes = await managePromoCodeUseCase.GetAllPromoCodesAsync();
         return Ok(codes);
     }
 
@@ -173,7 +144,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            await _promoCodeService.DeactivatePromoCodeAsync(id);
+            await managePromoCodeUseCase.DeactivatePromoCodeAsync(id, "admin"); // TODO: Get actual admin user ID
             return Ok("Promo code deactivated.");
         }
         catch (Exception ex)
@@ -198,9 +169,9 @@ public class AdminController : ControllerBase
     {
         try
         {
-            await _driverLocationService.UpdateLocationAsync(dto);
+            await driverLocationService.UpdateLocationAsync(dto);
 
-            await _auditLogService.LogAsync(
+            await auditLogService.LogAsync(
                 "Update Driver Location",
                 dto.DriverId.ToString(),
                 $"Lat: {dto.Latitude}, Lng: {dto.Longitude}"
@@ -218,14 +189,14 @@ public class AdminController : ControllerBase
     [HttpGet("drivers/location")]
     public async Task<IActionResult> GetAllDriverLocations()
     {
-        var locations = await _driverLocationService.GetAllLocationsAsync();
+        var locations = await driverLocationService.GetAllLocationsAsync();
         return Ok(locations);
     }
 
     [HttpGet("reports/user-activity")]
     public async Task<IActionResult> GetUserActivityReport()
     {
-        var report = await _userActivityReportService.GetUserActivityReportAsync();
+        var report = await userActivityReportService.GetUserActivityReportAsync();
         return Ok(report);
     }
 
