@@ -831,7 +831,9 @@ public async Task CompletePaymentWorkflow_ShouldProcessSuccessfully()
 - **Thread Safety**: Tests designed to run in parallel safely
 
 ---
+## 👤 Built by
 
+**Mariam Rusishvili**
 
 
 ---
