@@ -704,38 +704,18 @@ public async Task<bool> ProcessPaymentAsync(Guid rideId, decimal amount, string 
 
 ---
 
+## 👤 Built by
+
+**Tamari Tateshvili** – Payment Processing & Fare Calculation Module
+Based on collaborative Clean Architecture with all team members
+
+---
+
 ## 🧪 Comprehensive Unit Testing Suite
 
 The **UberClone.Tests** project provides extensive test coverage across all layers of the application, ensuring reliability and maintainability. The test suite uses **xUnit**, **FluentAssertions**, and **Moq** for modern, readable testing practices.
 
-### 🏗️ Test Architecture
-
-```
-UberClone.Tests/
-├── Controllers/                    → API Controller Tests
-│   ├── AuthControllerTests.cs
-│   ├── PaymentControllerTests.cs
-│   └── RideControllerTests.cs
-├── Domain/                         → Domain Entity Tests
-│   ├── RideTests.cs
-│   ├── UserTests.cs
-│   └── TransactionTests.cs
-├── DTOs/                          → Data Transfer Object Tests
-│   ├── PaymentRequestTests.cs
-│   └── RegisterUserDtoTests.cs
-├── UseCases/                      → Business Logic Tests
-│   ├── CalculateFareUseCaseTests.cs
-│   └── ProcessPaymentUseCaseTests.cs
-├── Integration/                   → Integration Tests
-│   ├── PaymentIntegrationTests.cs
-│   └── PaymentWorkflowTests.cs
-├── TestControllers/               → Test-Specific Controllers
-│   └── TestControllers.cs
-├── Helpers/                       → Test Utilities
-│   ├── TestDataBuilder.cs
-│   └── TestHelpers.cs
-└── UberCloneTestSuite.cs         → Main Test Suite
-```
+---
 
 ### 🎯 Test Coverage
 
@@ -852,10 +832,7 @@ public async Task CompletePaymentWorkflow_ShouldProcessSuccessfully()
 
 ---
 
-## 👤 Built by
 
-**Tamari Tateshvili** – Payment Processing & Fare Calculation Module
-Based on collaborative Clean Architecture with all team members
 
 ---
 
