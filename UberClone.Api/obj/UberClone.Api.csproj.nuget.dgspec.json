@@ -112,9 +112,6 @@
               },
               "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Domain\\UberClone.Domain.csproj": {
                 "projectPath": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Domain\\UberClone.Domain.csproj"
-              },
-              "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Tests\\UberClone.Tests.csproj": {
-                "projectPath": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Tests\\UberClone.Tests.csproj"
               }
             }
           }
@@ -386,6 +383,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Application\\UberClone.Application.csproj": {
+                "projectPath": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Application\\UberClone.Application.csproj"
+              },
               "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Domain\\UberClone.Domain.csproj": {
                 "projectPath": "C:\\Users\\Admin\\OneDrive\\Рабочий стол\\Uber_Clone\\UberClone.Domain\\UberClone.Domain.csproj"
               }
@@ -408,6 +408,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[9.0.6, )"
@@ -415,6 +423,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.12.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
             },
             "coverlet.collector": {
               "target": "Package",

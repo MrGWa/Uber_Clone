@@ -9,7 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="..\UberClone.Core\UberClone.Core.csproj" />
     <ProjectReference Include="..\UberClone.Domain\UberClone.Domain.csproj" />
-    <ProjectReference Include="..\UberClone.Tests\UberClone.Tests.csproj" />
   </ItemGroup>
 
   <ItemGroup>

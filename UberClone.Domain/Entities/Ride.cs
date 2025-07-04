@@ -2,7 +2,7 @@ namespace UberClone.Domain.Entities;
 
 public class Ride
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public Guid PassengerId { get; set; }
     public Guid DriverId { get; set; }
     public string Status { get; set; } = RideStatus.Pending;
