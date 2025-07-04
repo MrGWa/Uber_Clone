@@ -7,33 +7,40 @@ using Microsoft.EntityFrameworkCore;
 
 namespace UberClone.Infrastructure.Services.Admin;
 
-public class UserActivityReportService : IUserActivityReportService
+public class UserActivityReportService(AppDbContext context) : IUserActivityReportService
 {
-    private readonly AppDbContext _context;
-
-    public UserActivityReportService(AppDbContext context)
-    {
-        _context = context;
-    }
+    private readonly AppDbContext _context = context;
 
     public async Task<List<UserActivityDto>> GetUserActivityReportAsync()
     {
-        var userActivities = await _context.Users
-            .Select(user => new UserActivityDto
+        // Get all users
+        var users = await _context.Users.ToListAsync();
+
+        // Get ride statistics grouped by passenger
+        var rideStats = await _context.Rides
+            .GroupBy(r => r.PassengerId)
+            .Select(g => new
+            {
+                PassengerId = g.Key,
+                TotalRides = g.Count(),
+                TotalSpent = g.Where(r => r.Fare.HasValue).Sum(r => r.Fare!.Value),
+                LastRideDate = g.Max(r => r.CreatedAt)
+            })
+            .ToListAsync();
+
+        // Combine the data
+        var userActivities = users.Select(user =>
+        {
+            var stats = rideStats.FirstOrDefault(r => r.PassengerId == user.Id);
+            return new UserActivityDto
             {
                 UserId = user.Id,
                 Email = user.Email,
-                TotalRides = _context.Rides.Count(r => r.PassengerId == user.Id),
-                TotalSpent = _context.Rides
-                    .Where(r => r.PassengerId == user.Id && r.Fare.HasValue)
-                    .Sum(r => r.Fare!.Value),
-                LastRideDate = _context.Rides
-                    .Where(r => r.PassengerId == user.Id)
-                    .OrderByDescending(r => r.CreatedAt)
-                    .Select(r => r.CreatedAt)
-                    .FirstOrDefault()
-            })
-            .ToListAsync();
+                TotalRides = stats?.TotalRides ?? 0,
+                TotalSpent = stats?.TotalSpent ?? 0,
+                LastRideDate = stats?.LastRideDate
+            };
+        }).ToList();
 
         return userActivities;
     }

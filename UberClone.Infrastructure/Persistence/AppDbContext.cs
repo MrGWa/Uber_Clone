@@ -14,8 +14,7 @@ public class AppDbContext : DbContext
     public DbSet<PromoCode> PromoCodes => Set<PromoCode>(); //Added by tamar
     public DbSet<DriverLocation> DriverLocations => Set<DriverLocation>(); //Added by tamar
     public DbSet<AuditLog> AuditLogs => Set<AuditLog>(); //Added by tamar
-
-
+    public DbSet<Transaction> Transactions => Set<Transaction>(); //Added for payment functionality
     public DbSet<SupportTicket> SupportTickets => Set<SupportTicket>(); //Added by tamar
 
 }

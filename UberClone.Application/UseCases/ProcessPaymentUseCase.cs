@@ -1,6 +1,11 @@
+using UberClone.Application.DTOs;
+using UberClone.Application.Interfaces;
+using UberClone.Application.Interfaces.UseCases;
+using UberClone.Domain.Entities;
+
 namespace UberClone.Application.UseCases
 {
-    public class ProcessPaymentUseCase
+    public class ProcessPaymentUseCase : IProcessPaymentUseCase
     {
         private readonly IPaymentGateway _paymentGateway;
         private readonly ITransactionRepository _transactionRepository;
@@ -11,7 +16,7 @@ namespace UberClone.Application.UseCases
             _transactionRepository = transactionRepository;
         }
 
-        public async Task<bool> Execute(int rideId, decimal amount, string paymentMethod)
+        public async Task<bool> ExecuteAsync(Guid rideId, decimal amount, string paymentMethod)
         {
             var transaction = new Transaction
             {
@@ -19,10 +24,18 @@ namespace UberClone.Application.UseCases
                 Amount = amount,
                 PaymentMethod = paymentMethod,
                 IsSuccessful = false,
-                TransactionDate = DateTime.Now
+                TransactionDate = DateTime.UtcNow
             };
 
-            bool paymentSuccess = await _paymentGateway.ProcessPayment(new PaymentDetails { Amount = amount, PaymentMethod = paymentMethod });
+            var paymentDetails = new PaymentDetails 
+            { 
+                Amount = amount, 
+                PaymentMethod = paymentMethod,
+                RideId = rideId,
+                Description = $"Payment for ride {rideId}"
+            };
+
+            bool paymentSuccess = await _paymentGateway.ProcessPayment(paymentDetails);
             transaction.IsSuccessful = paymentSuccess;
 
             await _transactionRepository.SaveAsync(transaction);

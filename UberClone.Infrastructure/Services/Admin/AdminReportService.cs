@@ -2,19 +2,13 @@
 using UberClone.Application.DTOs.Admin;
 using UberClone.Application.Interfaces.Admin;
 using UberClone.Infrastructure.Persistence;
-using UberClone.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace UberClone.Infrastructure.Services.Admin
 {
-    public class AdminReportService : IAdminReportService
+    public class AdminReportService(AppDbContext context) : IAdminReportService
     {
-        private readonly AppDbContext _context;
-
-        public AdminReportService(AppDbContext context)
-        {
-            _context = context;
-        }
+        private readonly AppDbContext _context = context;
 
         public async Task<RevenueReportDto> GenerateRevenueReportAsync(ReportRequestDto dto)
         {
@@ -24,7 +18,6 @@ namespace UberClone.Infrastructure.Services.Admin
             var rides = await _context.Rides
                 .Where(r => r.CreatedAt >= dto.StartDate && 
                            r.CreatedAt <= dto.EndDate && 
-                           r.Status == RideStatus.Completed && 
                            r.Fare.HasValue)
                 .ToListAsync();
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UberClone.Application.DTOs;
-using UberClone.Application.UseCases.User;
+using UberClone.Application.Interfaces.UseCases;
 
 namespace UberClone.API.Controllers;
 
@@ -8,9 +8,9 @@ namespace UberClone.API.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly RegisterUserCommand _registerUserCommand;
+    private readonly IRegisterUserCommand _registerUserCommand;
 
-    public AuthController(RegisterUserCommand registerUserCommand)
+    public AuthController(IRegisterUserCommand registerUserCommand)
     {
         _registerUserCommand = registerUserCommand;
     }

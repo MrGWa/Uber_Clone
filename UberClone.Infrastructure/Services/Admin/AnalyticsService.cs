@@ -6,14 +6,9 @@ using UberClone.Infrastructure.Persistence;
 
 namespace UberClone.Infrastructure.Services.Admin;
 
-public class AnalyticsService : IAnalyticsService
+public class AnalyticsService(AppDbContext context) : IAnalyticsService
 {
-    private readonly AppDbContext _context;
-
-    public AnalyticsService(AppDbContext context)
-    {
-        _context = context;
-    }
+    private readonly AppDbContext _context = context;
 
     public async Task<SystemAnalyticsDto> GetSystemAnalyticsAsync()
     {
@@ -22,7 +17,7 @@ public class AnalyticsService : IAnalyticsService
         var totalEarnings = await _context.Rides
             .Where(r => r.Status == RideStatus.Completed && r.Fare.HasValue)
             .SumAsync(r => r.Fare!.Value);
-        var activeDrivers = await _context.Users.CountAsync(u => u.Role == UserRoles.Driver);
+        var activeDrivers = await _context.Users.CountAsync(u => u.Role == "Driver");
 
         return new SystemAnalyticsDto
         {

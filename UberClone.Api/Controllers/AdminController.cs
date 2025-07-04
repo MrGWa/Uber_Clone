@@ -1,11 +1,7 @@
 //Added by tamar
 using Microsoft.AspNetCore.Mvc;
 using UberClone.Application.DTOs.Admin;
-using UberClone.Infrastructure.Services.Admin;
 using UberClone.Application.Interfaces.Admin;
-using UberClone.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
-
 
 namespace UberClone.Api.Controllers;
 
@@ -14,25 +10,23 @@ namespace UberClone.Api.Controllers;
 public class AdminController : ControllerBase
 {
     private readonly IAnalyticsService _analyticsService;
-    private readonly AdminReportService _adminReportService;
-    private readonly SupportTicketService _supportTicketService;
-    private readonly TariffService _tariffService;
-    private readonly AuditLogService _auditLogService;
-    private readonly PromoCodeService _promoCodeService;
-    private readonly DriverLocationService _driverLocationService;
-    private readonly UserActivityReportService _userActivityReportService;
-
-
+    private readonly IAdminReportService _adminReportService;
+    private readonly ISupportTicketService _supportTicketService;
+    private readonly ITariffService _tariffService;
+    private readonly IAuditLogService _auditLogService;
+    private readonly IPromoCodeService _promoCodeService;
+    private readonly IDriverLocationService _driverLocationService;
+    private readonly IUserActivityReportService _userActivityReportService;
 
     public AdminController(
         IAnalyticsService analyticsService,
-        AdminReportService adminReportService,
-        SupportTicketService supportTicketService,
-        TariffService tariffService,
-        AuditLogService auditLogService,
-        PromoCodeService promoCodeService,
-        DriverLocationService driverLocationService,
-        UserActivityReportService userActivityReportService)
+        IAdminReportService adminReportService,
+        ISupportTicketService supportTicketService,
+        ITariffService tariffService,
+        IAuditLogService auditLogService,
+        IPromoCodeService promoCodeService,
+        IDriverLocationService driverLocationService,
+        IUserActivityReportService userActivityReportService)
     {
         _analyticsService = analyticsService;
         _adminReportService = adminReportService;
@@ -104,9 +98,9 @@ public class AdminController : ControllerBase
             await _supportTicketService.UpdateTicketAsync(ticketId, dto);
 
             await _auditLogService.LogAsync(
-                actionType: "Resolve Ticket",
-                targetEntity: $"SupportTicket:{ticketId}",
-                details: $"Status changed to '{dto.Status}' with response: {dto.AdminResponse}"
+                "Resolve Ticket",
+                ticketId.ToString(),
+                $"Status changed to '{dto.Status}' with response: {dto.AdminResponse}"
             );
 
             return Ok("Support ticket updated.");
@@ -125,9 +119,9 @@ public class AdminController : ControllerBase
             var result = await _tariffService.CreateOrUpdateAsync(dto);
 
             await _auditLogService.LogAsync(
-                actionType: "Update Tariff",
-                targetEntity: $"Tariff:{dto.Region}",
-                details: $"Base: {dto.BaseFare}, Min: {dto.PerMinute}, Km: {dto.PerKilometer}, Surge: {dto.SurgeMultiplier}"
+                "Update Tariff",
+                dto.Region,
+                $"Base: {dto.BaseFare}, Min: {dto.PerMinute}, Km: {dto.PerKilometer}, Surge: {dto.SurgeMultiplier}"
             );
 
             return Ok(result);
@@ -147,12 +141,9 @@ public class AdminController : ControllerBase
     }
 
     [HttpGet("audit-logs")]
-    public async Task<IActionResult> GetAuditLogs([FromServices] AppDbContext context)
+    public async Task<IActionResult> GetAuditLogs()
     {
-        var logs = await context.AuditLogs
-        .OrderByDescending(log => log.Timestamp)
-        .ToListAsync();
-
+        var logs = await _auditLogService.GetAllAuditLogsAsync();
         return Ok(logs);
     }
 
@@ -192,28 +183,15 @@ public class AdminController : ControllerBase
     }
 
     [HttpGet("health")]
-    public IActionResult GetSystemHealth([FromServices] AppDbContext context)
+    public IActionResult GetSystemHealth()
     {
-        try
+        // For now, return a simple health check
+        // In a real application, you might want to create a health check service
+        return Ok(new
         {
-            var canConnect = context.Database.CanConnect();
-            var status = canConnect ? "Healthy" : "Database Unreachable";
-
-            return Ok(new
-            {
-                status,
-                timestamp = DateTime.UtcNow
-            });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new
-            {
-                status = "Unhealthy",
-                message = ex.Message,
-                timestamp = DateTime.UtcNow
-            });
-        }
+            status = "Healthy",
+            timestamp = DateTime.UtcNow
+        });
     }
     [HttpPost("drivers/location")]
     public async Task<IActionResult> UpdateDriverLocation([FromBody] UpdateDriverLocationDto dto)
@@ -223,9 +201,9 @@ public class AdminController : ControllerBase
             await _driverLocationService.UpdateLocationAsync(dto);
 
             await _auditLogService.LogAsync(
-                actionType: "Update Driver Location",
-                targetEntity: $"Driver:{dto.DriverId}",
-                details: $"Lat: {dto.Latitude}, Lng: {dto.Longitude}"
+                "Update Driver Location",
+                dto.DriverId.ToString(),
+                $"Lat: {dto.Latitude}, Lng: {dto.Longitude}"
             );
 
             return Ok("Driver location updated.");

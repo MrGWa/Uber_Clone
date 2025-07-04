@@ -1,5 +1,6 @@
-using UberClone.Application.UseCases;
-using UberClone.Infrastructure.Gateways;
+using Microsoft.AspNetCore.Mvc;
+using UberClone.Application.DTOs;
+using UberClone.Application.Interfaces.UseCases;
 
 namespace UberClone.Api.Controllers
 {
@@ -7,10 +8,10 @@ namespace UberClone.Api.Controllers
     [Route("api/payment")]
     public class PaymentController : ControllerBase
     {
-        private readonly CalculateFareUseCase _calculateFareUseCase;
-        private readonly ProcessPaymentUseCase _processPaymentUseCase;
+        private readonly ICalculateFareUseCase _calculateFareUseCase;
+        private readonly IProcessPaymentUseCase _processPaymentUseCase;
 
-        public PaymentController(CalculateFareUseCase calculateFareUseCase, ProcessPaymentUseCase processPaymentUseCase)
+        public PaymentController(ICalculateFareUseCase calculateFareUseCase, IProcessPaymentUseCase processPaymentUseCase)
         {
             _calculateFareUseCase = calculateFareUseCase;
             _processPaymentUseCase = processPaymentUseCase;
@@ -22,19 +23,19 @@ namespace UberClone.Api.Controllers
             try
             {
                 // Calculate fare
-                var fare = _calculateFareUseCase.Execute(paymentRequest.RideId);
+                var fare = await _calculateFareUseCase.ExecuteAsync(paymentRequest.RideId);
 
                 // Process payment
-                bool paymentSuccess = await _processPaymentUseCase.Execute(paymentRequest.RideId, fare, paymentRequest.PaymentMethod);
+                bool paymentSuccess = await _processPaymentUseCase.ExecuteAsync(paymentRequest.RideId, fare, paymentRequest.PaymentMethod);
 
                 if (!paymentSuccess)
-                    return BadRequest("Payment failed.");
+                    return BadRequest(new { Error = "Payment failed." });
 
-                return Ok("Payment successful.");
+                return Ok(new { Message = "Payment successful.", Amount = fare });
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { Error = ex.Message });
             }
         }
     }

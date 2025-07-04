@@ -209,3 +209,16 @@ C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug
 C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Tests\obj\Debug\net9.0\UberClone.Tests.pdb
 C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\.msCoverageSourceRootsMapping_UberClone.Tests
 C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\CoverletSourceRootsMapping_UberClone.Tests
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\UberClone.Domain.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Tests\bin\Debug\net9.0\UberClone.Domain.pdb

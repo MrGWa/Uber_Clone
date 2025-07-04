@@ -12,4 +12,7 @@ public class Ride
     public DateTime? CancelledAt { get; set; }
     public string? CancellationReason { get; set; }
     public decimal? Fare { get; set; }
+    public decimal Distance { get; set; }
+    public string? PickupLocation { get; set; }
+    public string? DropoffLocation { get; set; }
 }

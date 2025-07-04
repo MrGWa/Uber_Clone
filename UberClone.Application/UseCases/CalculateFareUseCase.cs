@@ -1,6 +1,10 @@
+using UberClone.Application.Interfaces;
+using UberClone.Application.Interfaces.UseCases;
+using UberClone.Domain.Entities;
+
 namespace UberClone.Application.UseCases
 {
-    public class CalculateFareUseCase
+    public class CalculateFareUseCase : ICalculateFareUseCase
     {
         private readonly IRideRepository _rideRepository;
 
@@ -9,12 +13,23 @@ namespace UberClone.Application.UseCases
             _rideRepository = rideRepository;
         }
 
-        public decimal Execute(int rideId)
+        public async Task<decimal> ExecuteAsync(Guid rideId)
         {
-            var ride = _rideRepository.GetRideById(rideId);
-            if (ride == null) throw new Exception("Ride not found.");
+            var ride = await _rideRepository.GetRideByIdAsync(rideId);
+            if (ride == null) 
+                throw new Exception("Ride not found.");
 
-            return ride.Distance * 1.5m; // Example: 1.5 is the fare per km
+            // Calculate fare based on distance and base rate
+            decimal baseFare = 5.0m; // Base fare
+            decimal ratePerKm = 1.5m; // Rate per kilometer
+            
+            decimal calculatedFare = baseFare + (ride.Distance * ratePerKm);
+            
+            // Update ride with calculated fare
+            ride.Fare = calculatedFare;
+            await _rideRepository.UpdateRideAsync(ride);
+            
+            return calculatedFare;
         }
     }
 }

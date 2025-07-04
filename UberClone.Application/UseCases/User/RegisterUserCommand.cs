@@ -1,11 +1,12 @@
 ﻿using BCrypt.Net;
 using UberClone.Application.DTOs;
 using UberClone.Application.Interfaces;
+using UberClone.Application.Interfaces.UseCases;
 using UberClone.Domain.Entities;
 
 namespace UberClone.Application.UseCases.User;
 
-public class RegisterUserCommand
+public class RegisterUserCommand : IRegisterUserCommand
 {
     private readonly IUserRepository _repository;
 
