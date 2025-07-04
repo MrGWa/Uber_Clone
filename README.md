@@ -525,26 +525,6 @@ This module handles fare calculations based on distance, time, and dynamic prici
 
 ---
 
-## 🗂️ Project Structure (Solution Layout)
-
-```
-UberClone.sln
-├── UberClone.Api/                          → Entry-point Web API
-│   └── Controllers/PaymentController.cs
-├── UberClone.Application/                  → DTOs and Use Cases
-│   ├── DTOs/PaymentRequest.cs
-│   ├── DTOs/PaymentDetails.cs
-│   ├── UseCases/ProcessPaymentUseCase.cs
-│   ├── UseCases/CalculateFareUseCase.cs
-│   └── Interfaces/IPaymentGateway.cs
-├── UberClone.Infrastructure/               → Payment Gateway Implementation
-│   └── Gateway/PaymentGatewayImplementation.cs
-├── UberClone.Domain/                       → Domain Entities
-│   └── Entities/PaymentMethod.cs
-```
-
----
-
 ## ✅ Features Implemented
 
 ### 💰 1. Fare Calculation
@@ -712,19 +692,6 @@ public async Task<bool> ProcessPaymentAsync(Guid rideId, decimal amount, string 
 * **Security First**: All payment data is handled securely with encryption and validation
 
 ---
-
-## ✨ Future Enhancements
-
-* **Multiple Payment Providers**: Integration with Stripe, PayPal, Square, etc.
-* **Wallet System**: Digital wallet for storing credits and frequent payments
-* **Subscription Plans**: Monthly/yearly subscription options for frequent riders
-* **Split Payments**: Group ride payment splitting functionality
-* **Refund System**: Automated refund processing for cancelled rides
-* **International Payments**: Multi-currency support and exchange rates
-* **Payment Analytics**: Advanced payment analytics and insights
-
----
-
 ## 🔧 Code Quality & Bug Fixes
 
 **Note**: All compilation errors, structural issues, and payment processing bugs have been identified and resolved:
@@ -739,7 +706,7 @@ public async Task<bool> ProcessPaymentAsync(Guid rideId, decimal amount, string 
 
 ## 👤 Built by
 
-**Development Team** – Payment Processing & Fare Calculation Module
+**Tamari Tateshvili** – Payment Processing & Fare Calculation Module
 Based on collaborative Clean Architecture with all team members
 
 ---
