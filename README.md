@@ -141,6 +141,8 @@ This module ensures a full **end-to-end ride experience**, from requesting a rid
 
 ## 🗂️ Project Structure (Solution Layout)
 
+```
+
 UberClone.sln
 ├── UberClone.Api/                   → Entry-point Web API
 │   └── Controllers/RideController.cs
@@ -157,6 +159,8 @@ UberClone.sln
 │   └── Entities/RideStatus.cs
 └── UberClone.Tests/                → Unit Tests
 └── RideServiceTests.cs
+
+```
 
 
 ## ✅ Features Implemented
