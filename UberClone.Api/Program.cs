@@ -11,6 +11,7 @@ using UberClone.Application.Interfaces.Services;
 using UberClone.Application.Interfaces.UseCases;
 using UberClone.Application.UseCases.Admin;
 using UberClone.Application.UseCases.Ride;
+using UberClone.Infrastructure.Gateway;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Register repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRideRepository, RideRepository>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+
+// Register gateway services
+builder.Services.AddScoped<IPaymentGateway, PaymentGatewayImplementation>();
 
 // Register legacy services (kept for compatibility)
 builder.Services.AddScoped<AdminReportService>();
