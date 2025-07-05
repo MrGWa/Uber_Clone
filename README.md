@@ -440,7 +440,89 @@ public class RegisterUserDto
 
 ## 🧪 Testing Guide (Postman or curl)
 
-### Example: User Registration (POST)
+### 📮 How to Send User Registration Request in Postman
+
+#### **Step 1: Set Up Request**
+1. **Method**: Select `POST`
+2. **URL**: `http://localhost:5103/api/auth/register`
+3. **Headers**: Add `Content-Type: application/json`
+
+#### **Step 2: Configure Request Body**
+1. Go to the **Body** tab
+2. Select **raw** 
+3. Choose **JSON** from the dropdown
+4. Enter the following JSON:
+
+```json
+{
+  "username": "johndoe",
+  "email": "john@example.com",
+  "password": "SecurePassword123",
+  "firstName": "John",
+  "lastName": "Doe"
+}
+```
+
+#### **Step 3: Send Request**
+1. Click **Send** button
+2. Check the response in the lower panel
+
+#### **Step 4: Expected Responses**
+
+**✅ Success Response (Status: 200 OK):**
+```json
+"User registered successfully."
+```
+
+**❌ Error Response - Duplicate Email (Status: 400 Bad Request):**
+```json
+"Email already registered."
+```
+
+**❌ Error Response - Invalid Data (Status: 400 Bad Request):**
+```json
+"Invalid user data provided."
+```
+
+---
+
+### 📝 Sample Test Data
+
+#### **Valid Registration Examples:**
+```json
+{
+  "username": "alice_smith",
+  "email": "alice@example.com",
+  "password": "MySecurePass456",
+  "firstName": "Alice",
+  "lastName": "Smith"
+}
+```
+
+```json
+{
+  "username": "driver_bob",
+  "email": "bob.driver@example.com",
+  "password": "DriverPass789",
+  "firstName": "Bob",
+  "lastName": "Johnson"
+}
+```
+
+#### **Required Fields:**
+- `username` (string) - Must be unique
+- `email` (string) - Must be valid email format and unique
+- `password` (string) - Minimum 8 characters recommended
+
+#### **Optional Fields:**
+- `firstName` (string) - User's first name
+- `lastName` (string) - User's last name
+
+---
+
+### 🔧 cURL Alternative
+
+For command line testing, use this cURL command:
 
 ```bash
 curl -X POST http://localhost:5103/api/auth/register \
@@ -452,16 +534,6 @@ curl -X POST http://localhost:5103/api/auth/register \
        \"firstName\": \"John\",
        \"lastName\": \"Doe\"
      }"
-```
-
-### Success Response:
-```json
-"User registered successfully."
-```
-
-### Error Response (Duplicate Email):
-```json
-"Email already registered."
 ```
 
 ---

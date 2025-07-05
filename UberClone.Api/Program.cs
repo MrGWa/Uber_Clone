@@ -44,7 +44,7 @@ builder.Services.AddScoped<IAdminReportService, AdminReportService>();
 builder.Services.AddScoped<IUserActivityReportService, UserActivityReportService>();
 
 // Register UseCases
-builder.Services.AddScoped<RegisterUserCommand>();
+builder.Services.AddScoped<IRegisterUserCommand, RegisterUserCommand>();
 builder.Services.AddScoped<ICalculateFareUseCase, CalculateFareUseCase>();
 builder.Services.AddScoped<IProcessPaymentUseCase, ProcessPaymentUseCase>();
 builder.Services.AddScoped<IStartRideUseCase, StartRideUseCase>();
