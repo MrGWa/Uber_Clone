@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UberClone.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1147277945c11b76f0c32dbec4fbe3073d1a13c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebcc00dd5e4381227cb7ea2be9b5b8aeafa40521")]
 [assembly: System.Reflection.AssemblyProductAttribute("UberClone.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UberClone.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

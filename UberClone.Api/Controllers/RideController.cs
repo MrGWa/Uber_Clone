@@ -58,4 +58,40 @@ public class RideController(
             Distance = ride.Distance 
         });
     }
+
+    [HttpPost("request")]
+    [Consumes("application/json")]
+    [Produces("application/json")]
+    public async Task<IActionResult> RequestRide([FromBody] RideRequestDto dto)
+    {
+        try
+        {
+            // Create a new ride request
+            var ride = new Ride
+            {
+                Id = Guid.NewGuid(),
+                PassengerId = dto.PassengerId,
+                DriverId = Guid.Empty, // Will be assigned when a driver accepts
+                Status = RideStatus.Pending,
+                PickupLocation = dto.PickupLocation,
+                DropoffLocation = dto.DropoffLocation,
+                CreatedAt = DateTime.UtcNow,
+                Distance = 0 // Will be calculated later
+            };
+
+            await rideRepository.CreateRideAsync(ride);
+            
+            return Ok(new { 
+                Message = "Ride request created successfully", 
+                RideId = ride.Id,
+                Status = ride.Status,
+                PickupLocation = ride.PickupLocation,
+                DropoffLocation = ride.DropoffLocation
+            });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Error = ex.Message });
+        }
+    }
 }
