@@ -55,8 +55,38 @@ builder.Services.AddScoped<IResolveSupportTicketUseCase, ResolveSupportTicketUse
 builder.Services.AddScoped<IManageTariffUseCase, ManageTariffUseCase>();
 builder.Services.AddScoped<IManagePromoCodeUseCase, ManagePromoCodeUseCase>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.SuppressAsyncSuffixInActionNames = false;
+})
+.AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = null; // Keep original property names
+    options.JsonSerializerOptions.WriteIndented = true; // Pretty print JSON
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true; // Case insensitive
+});
+
+// Add explicit JSON formatting support
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+{
+    options.SerializerOptions.PropertyNamingPolicy = null;
+    options.SerializerOptions.WriteIndented = true;
+    options.SerializerOptions.PropertyNameCaseInsensitive = true;
+});
+
 var app = builder.Build();
+
+// Configure the HTTP request pipeline
+app.UseRouting();
+
+// Add middleware to handle requests properly
+app.Use(async (context, next) =>
+{
+    // Log request details for debugging
+    Console.WriteLine($"Request: {context.Request.Method} {context.Request.Path}");
+    Console.WriteLine($"Content-Type: {context.Request.ContentType}");
+    await next();
+});
 
 app.MapControllers();
 app.Run();

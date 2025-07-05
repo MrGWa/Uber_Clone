@@ -536,3 +536,6 @@ C:\Users\ThinkBook Yoga 14s\OneDrive\Desktop\UberClone\UberClone.Api\obj\Debug\n
 C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Api\bin\Debug\net9.0\Castle.Core.dll
 C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Api\bin\Debug\net9.0\FluentAssertions.dll
 C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Api\bin\Debug\net9.0\Moq.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Admin\OneDrive\Рабочий стол\Uber_Clone\UberClone.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll

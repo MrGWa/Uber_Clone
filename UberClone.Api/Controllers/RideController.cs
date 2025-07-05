@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UberClone.Application.DTOs.Ride;
 using UberClone.Application.Interfaces.UseCases;
+using UberClone.Application.Interfaces;
+using UberClone.Domain.Entities;
 
 namespace UberClone.Api.Controllers;
 
@@ -9,7 +11,8 @@ namespace UberClone.Api.Controllers;
 public class RideController(
     IStartRideUseCase startRideUseCase,
     ICompleteRideUseCase completeRideUseCase,
-    ICancelRideUseCase cancelRideUseCase) : ControllerBase
+    ICancelRideUseCase cancelRideUseCase,
+    IRideRepository rideRepository) : ControllerBase
 {
     [HttpPost("start")]
     public async Task<IActionResult> Start([FromBody] StartRideDto dto)
@@ -30,5 +33,29 @@ public class RideController(
     {
         await cancelRideUseCase.ExecuteAsync(dto);
         return Ok("Ride cancelled.");
+    }
+
+    [HttpPost("create-test-ride")]
+    public async Task<IActionResult> CreateTestRide()
+    {
+        var ride = new Ride
+        {
+            Id = Guid.Parse("123e4567-e89b-12d3-a456-426614174000"), // Fixed GUID for testing
+            PassengerId = Guid.NewGuid(),
+            DriverId = Guid.NewGuid(),
+            Status = RideStatus.Pending,
+            Distance = 10.5m, // 10.5 km
+            PickupLocation = "Test Pickup Location",
+            DropoffLocation = "Test Dropoff Location",
+            CreatedAt = DateTime.UtcNow
+        };
+
+        await rideRepository.CreateRideAsync(ride);
+        
+        return Ok(new { 
+            Message = "Test ride created successfully", 
+            RideId = ride.Id,
+            Distance = ride.Distance 
+        });
     }
 }

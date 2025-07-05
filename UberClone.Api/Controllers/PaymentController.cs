@@ -18,10 +18,26 @@ namespace UberClone.Api.Controllers
         }
 
         [HttpPost("process")]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<IActionResult> ProcessPayment([FromBody] PaymentRequest paymentRequest)
         {
             try
             {
+                // Add model validation
+                if (paymentRequest == null)
+                {
+                    return BadRequest(new { Error = "Request body is null or invalid" });
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new { Error = "Invalid model state", Details = ModelState });
+                }
+
+                // Log the received request for debugging
+                Console.WriteLine($"Processing payment: RideId={paymentRequest.RideId}, PaymentMethod={paymentRequest.PaymentMethod}, Amount={paymentRequest.Amount}");
+
                 // Calculate fare
                 var fare = await _calculateFareUseCase.ExecuteAsync(paymentRequest.RideId);
 
@@ -35,6 +51,7 @@ namespace UberClone.Api.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Exception in ProcessPayment: {ex.Message}");
                 return BadRequest(new { Error = ex.Message });
             }
         }
