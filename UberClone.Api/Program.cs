@@ -42,6 +42,9 @@ builder.Services.AddScoped<IRideLifecycleService, RideLifecycleService>();
 builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
 builder.Services.AddScoped<IAdminReportService, AdminReportService>();
 builder.Services.AddScoped<IUserActivityReportService, UserActivityReportService>();
+builder.Services.AddScoped<ISupportTicketService, SupportTicketService>();
+builder.Services.AddScoped<IAuditLogService, AuditLogService>();
+builder.Services.AddScoped<IDriverLocationService, DriverLocationService>();
 
 // Register UseCases
 builder.Services.AddScoped<IRegisterUserCommand, RegisterUserCommand>();
